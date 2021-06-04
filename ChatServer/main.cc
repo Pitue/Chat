@@ -2,6 +2,8 @@
 #include "Server.h"
 #include "../Chat.h"
 
+constexpr unsigned int TICK_TIME = 5000;
+
 int main(int argc, char** argv) {
 	try {
 		Server server;
@@ -9,8 +11,8 @@ int main(int argc, char** argv) {
 
 		while (true) {
 			server.HandleMessages();
-			//server.Update();
-			std::this_thread::sleep_for(std::chrono::seconds(5));
+			server.PingAll();
+			std::this_thread::sleep_for(std::chrono::milliseconds(TICK_TIME));
 		}
 	}
 	catch (std::exception& ex) {

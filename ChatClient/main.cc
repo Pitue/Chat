@@ -12,6 +12,7 @@ int main(int argc, char** argv) {
 		cnl::Message<MessageType> msg(MessageType::PING);
 
 		while (1) {
+			client.Send(msg);
 			if (!client.IsConnected()) return 1;
 			std::this_thread::sleep_for(std::chrono::seconds(5));
 		}
