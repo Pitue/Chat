@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Chat.cc" />
     <ClCompile Include="main.cc" />
   </ItemGroup>
   <ItemGroup>

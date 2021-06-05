@@ -1,6 +1,7 @@
-#include <cnl.h>
-#include "Server.h"
 #include "../Chat.h"
+#include "Server.h"
+
+#include <cnl.h>
 
 constexpr unsigned int TICK_TIME = 5000;
 

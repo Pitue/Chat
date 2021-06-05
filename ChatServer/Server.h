@@ -15,7 +15,9 @@ class Server : public cnl::BasicServer<MessageType> {
 		switch (message.header_.type_) {
 		case MessageType::PING:
 			break;
-
+		case MessageType::TEXT:
+			std::cout << message.Read<message_string>().data() << std::endl;
+			break;
 		default:
 			throw std::runtime_error("Unknown type!\n");
 			break;
