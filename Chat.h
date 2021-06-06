@@ -23,7 +23,4 @@ enum class MessageType: uint_fast8_t {
 
 typedef cnl::Message<MessageType> Message;
 
-typedef std::array<unsigned char, 256UI64> message_string;
-
-message_string ToMessageString(const std::string& str);
 #endif

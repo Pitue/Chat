@@ -3,6 +3,8 @@
 
 #include <cnl.h>
 
+#include <string_view>
+
 constexpr unsigned int TICK_TIME = 5000;
 
 int main(int argc, char** argv) {

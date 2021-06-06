@@ -11,18 +11,14 @@ int main(int argc, char** argv) {
 
 		Message msg(MessageType::PING),
 			txt(MessageType::TEXT);
-		txt.Write<message_string>(ToMessageString("Hello World!\n"));
+		const std::string str = "Hello World!";
+		txt.WriteString(str);
+		txt.Write(str.size());
 
-		/*
-		client.Send(msg);
-		if (!client.IsConnected()) return 1;
-
-		client.Send(txt);*/
-
-		while (1) {
-			client.Send(msg);
+		while (1) {	
 			if (!client.IsConnected()) return 1;
 			std::this_thread::sleep_for(std::chrono::seconds(5));
+			client.Send(txt);
 		}
 	}
 	catch (std::exception& ex) {
