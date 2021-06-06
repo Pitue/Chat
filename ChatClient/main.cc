@@ -1,6 +1,6 @@
-#include <cnl.h>
-#include "Client.h"
 #include "../Chat.h"
+#include "Client.h"
+#include <cnl.h>
 
 #define HOST "127.0.0.1"
 
@@ -9,11 +9,16 @@ int main(int argc, char** argv) {
 		Client client;
 		client.Connect(HOST, SERVER_PORT);
 
-		cnl::Message<MessageType> msg(MessageType::PING);
+		Message msg(MessageType::PING),
+			txt(MessageType::TEXT);
+		const std::string str = "Hello World!";
+		txt.WriteString(str);
+		txt.Write(str.size());
 
-		while (1) {
+		while (1) {	
 			if (!client.IsConnected()) return 1;
 			std::this_thread::sleep_for(std::chrono::seconds(5));
+			client.Send(txt);
 		}
 	}
 	catch (std::exception& ex) {
